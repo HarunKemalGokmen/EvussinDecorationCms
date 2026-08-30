@@ -15,7 +15,7 @@
 
 ### 🌐 Ziyaretçi Arayüzü (Public Web)
 * **Dinamik Vitrin (Ana Sayfa):** Veritabanından yönetilen öne çıkan hizmetler, referanslar ve kurumsal bloklar.
-* **Hizmet Kataloğu & Detay Sayfaları:** Zengin metin (HTML), galeri resimleri ve detay açıklamalarıyla zenginleştirilmiş dinamik hizmet sayfaları (HizmetDetay.aspx?id=X).
+* **Hizmet Kataloğu & Detay Sayfaları:** Zengin metin (HTML), galeri resimleri ve detay açıklamalarıyla zenginleştirilmiş dinamik hizmet sayfaları (`HizmetDetay.aspx?id=X`).
 * **İletişim & Talep Formu:** Ziyaretçilerin doğrudan panel yöneticisine mesaj ve teklif talebi iletebildiği, veritabanı kayıtlı dinamik iletişim altyapısı.
 * **Modern & Mobil Uyumlu Tasarım:** Bootstrap 5 ve özel CSS bileşenleri ile tüm cihazlarda kusursuz çalışan responsive arayüz.
 
@@ -33,7 +33,7 @@
 
 Proje, kurumsal yazılım standartlarına uygun **3 Katmanlı (N-Tier)** ve **Nesne Yönelimli Programlama (OOP)** mimarisiyle geliştirilmiştir:
 
-`	ext
+```text
 EvussinDecoration/
 ├── App_Code/
 │   ├── Model/                 # Varlık (Entity / DTO) Modelleri
@@ -57,18 +57,18 @@ EvussinDecoration/
 ├── Iletisim.aspx              # İletişim & Mesaj Formu
 ├── Site.master                # Ortak Master Page Şablonu
 └── Web.config                 # Uygulama ve Bağlantı Ayarları
-`
+```
 
 ### 🔒 Güvenlik Yaklaşımı
-* **SQL Injection Koruması:** Tüm veritabanı sorguları SqlCommand ve SqlParameter kullanılarak parametrik şekilde çalıştırılır.
+* **SQL Injection Koruması:** Tüm veritabanı sorguları `SqlCommand` ve `SqlParameter` kullanılarak parametrik şekilde çalıştırılır.
 * **XSS ve Giriş Doğrulaması:** Giriş alanlarında XSS saldırılarına karşı HTML Encoding ve sanitization uygulanmıştır.
-* **Oturum İzolasyonu:** AdminGuvenlik.GirisGerekli() metoduyla her admin sayfası yüklenişinde yetki doğrulaması yapılır.
+* **Oturum İzolasyonu:** `AdminGuvenlik.GirisGerekli()` metoduyla her admin sayfası yüklenişinde yetki doğrulaması yapılır.
 
 ---
 
 ## 💾 Veritabanı Şeması
 
-`sql
+```sql
 -- Kullanıcı Tablosu
 Tbl_Kullanici (KullaniciId, KullaniciAdi, Sifre)
 
@@ -77,7 +77,7 @@ Tbl_Hizmet (HizmetId, HizmetBaslik, HizmetOzet, HizmetDetay, HizmetResim, AktifM
 
 -- İletişim Mesajları Tablosu
 Tbl_Mesaj (MesajId, AdSoyad, Email, MesajMetni, Tarih, OkunduMu)
-`
+```
 
 ---
 
@@ -92,26 +92,26 @@ Projeyi yerel ortamınızda çalıştırmak için aşağıdaki adımları izleye
 
 ### Adım Adım Kurulum:
 1. **Repoyu Klonlayın:**
-   `ash
+   ```bash
    git clone https://github.com/harunkml/EvussinDecorationCms.git
-   `
+   ```
 2. **Visual Studio ile Açın:**
    * Visual Studio'yu açın.
-   * File -> Open -> Web Site... menüsünden EvussinDecoration klasörünü seçin.
+   * `File -> Open -> Web Site...` menüsünden `EvussinDecoration` klasörünü seçin.
 3. **Veritabanını Hazırlayın:**
    * **Seçenek A (LocalDB - Önerilen):** 
-     * Solution Explorer'da App_Data klasörüne sağ tıklayıp Add -> New Item -> SQL Server Database seçerek EvussinProjectDB.mdf dosyasını oluşturun.
-     * App_Data/EvussinDB.sql dosyasını açıp veritabanı üzerinde çalıştırın (Execute).
+     * Solution Explorer'da `App_Data` klasörüne sağ tıklayıp `Add -> New Item -> SQL Server Database` seçerek `EvussinProjectDB.mdf` dosyasını oluşturun.
+     * `App_Data/EvussinDB.sql` dosyasını açıp veritabanı üzerinde çalıştırın (`Execute`).
    * **Seçenek B (SQL Server / SQLEXPRESS):**
-     * SQL Server Management Studio (SSMS) üzerinde EvussinDB adında bir veritabanı oluşturun ve EvussinDB.sql scriptini çalıştırın.
-     * Web.config dosyasındaki connectionStrings bölümünü kendi SQL Server instance adınıza göre düzenleyin.
+     * SQL Server Management Studio (SSMS) üzerinde `EvussinDB` adında bir veritabanı oluşturun ve `EvussinDB.sql` scriptini çalıştırın.
+     * `Web.config` dosyasındaki `connectionStrings` bölümünü kendi SQL Server instance adınıza göre düzenleyin.
 4. **Çalıştırın:**
-   * F5 veya Ctrl + F5 tuşuna basarak IIS Express üzerinde projeyi başlatın.
+   * `F5` veya `Ctrl + F5` tuşuna basarak IIS Express üzerinde projeyi başlatın.
 
 ### 🔑 Varsayılan Yönetici Giriş Bilgileri
-* **Giriş URL'i:** /Admin/Login.aspx
-* **Kullanıcı Adı:** dmin
-* **Şifre:** 123456
+* **Giriş URL'i:** `/Admin/Login.aspx`
+* **Kullanıcı Adı:** `admin`
+* **Şifre:** `123456`
 
 ---
 
